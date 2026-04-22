@@ -120,9 +120,10 @@
     }
   });
 
-  /* 6. Globe student rotator ----------------------------------- */
+  /* 6. Globe student rotator (with arc trace + pop-up callout) -- */
   const callout = document.getElementById('studentCallout');
-  const calloutLine = document.getElementById('calloutLine');
+  const arcTrace = document.getElementById('arcTrace');
+  const stage = document.querySelector('.globe-trust__stage');
   const pins = document.querySelectorAll('.globe .pin');
   const avatarEl = document.getElementById('studentAvatar');
   const nameEl = document.getElementById('studentName');
@@ -139,35 +140,83 @@
     { pin: 'saopaulo',   initials: 'LB', name: 'Lucia Barros',     loc: 'São Paulo, Brazil',  funded: 'Funded $250k' },
   ];
 
+  // SVG viewBox is 400x400, sphere centered at (200,200) radius 180.
+  // Quadratic bezier with control point pushed outward from globe center
+  // to give the arc a "lifted" curve like a great-circle route.
+  const arcPath = (a, b) => {
+    const cx = 200, cy = 200;
+    const mx = (a.x + b.x) / 2;
+    const my = (a.y + b.y) / 2;
+    const dx = mx - cx, dy = my - cy;
+    const k = 0.55;
+    const cpx = cx + dx * (1 + k);
+    const cpy = cy + dy * (1 + k);
+    return `M ${a.x} ${a.y} Q ${cpx} ${cpy} ${b.x} ${b.y}`;
+  };
+
+  const pinCoords = (key) => {
+    const el = document.querySelector(`.globe .pin[data-pin="${key}"]`);
+    return el ? { x: +el.dataset.x, y: +el.dataset.y } : null;
+  };
+
+  // SVG coords (0–400) → percentage of the stage div.
+  const positionCallout = (pin) => {
+    if (!callout || !pin) return;
+    callout.style.left = (pin.x / 400) * 100 + '%';
+    callout.style.top = (pin.y / 400) * 100 + '%';
+    callout.dataset.pos = pin.y < 180 ? 'below' : 'above';
+  };
+
+  const traceArc = (from, to) => {
+    if (!arcTrace || !from || !to) return;
+    arcTrace.setAttribute('d', arcPath(from, to));
+    let len = 0;
+    try { len = arcTrace.getTotalLength(); } catch (_) { len = 600; }
+    arcTrace.style.transition = 'none';
+    arcTrace.style.strokeDasharray = len;
+    arcTrace.style.strokeDashoffset = len;
+    arcTrace.style.opacity = '0';
+    arcTrace.getBoundingClientRect(); // force reflow
+    arcTrace.style.transition = `stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1), opacity .4s ease`;
+    arcTrace.style.opacity = '1';
+    arcTrace.style.strokeDashoffset = '0';
+    setTimeout(() => { arcTrace.style.opacity = '0'; }, 2200);
+  };
+
   if (callout && pins.length) {
     let idx = 0;
-    const render = () => {
+    let prevPin = null;
+
+    const render = (animate) => {
       const s = STUDENTS[idx];
+      const target = pinCoords(s.pin);
       pins.forEach((p) => p.classList.toggle('is-active', p.dataset.pin === s.pin));
-      const activePin = document.querySelector(`.globe .pin[data-pin="${s.pin}"]`);
-      if (activePin && calloutLine) {
-        const t = activePin.getAttribute('transform').match(/translate\(([\d.]+),\s*([\d.]+)\)/);
-        if (t) {
-          calloutLine.setAttribute('x1', t[1]);
-          calloutLine.setAttribute('y1', t[2]);
-        }
-      }
       avatarEl.textContent = s.initials;
       nameEl.textContent = s.name;
       locEl.textContent = s.loc;
       fundedEl.textContent = s.funded;
+
+      if (animate && prevPin && !prefersReduced) traceArc(prevPin, target);
+
+      positionCallout(target);
+      // pop-in animation
+      callout.classList.remove('is-visible');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => callout.classList.add('is-visible'));
+      });
+
+      prevPin = target;
     };
-    render();
+
+    render(false);
     const advance = () => {
-      if (prefersReduced) { idx = (idx + 1) % STUDENTS.length; render(); return; }
-      callout.classList.add('is-swap');
+      callout.classList.remove('is-visible');
       setTimeout(() => {
         idx = (idx + 1) % STUDENTS.length;
-        render();
-        callout.classList.remove('is-swap');
-      }, 350);
+        render(true);
+      }, 380);
     };
-    setInterval(advance, 3500);
+    setInterval(advance, 3800);
   }
 
   /* 7. Smooth-scroll anchor hrefs ------------------------------ */

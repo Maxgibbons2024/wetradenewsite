@@ -104,7 +104,7 @@
     <!-- =============== GLOBE TRUST (students worldwide) =============== -->
     <section class="globe-trust" aria-labelledby="globeTrustTitle">
       <div class="globe-trust__inner">
-        <div class="globe-trust__copy">
+        <header class="globe-trust__head">
           <p class="eyebrow">1,500+ students · 56 countries</p>
           <h2 id="globeTrustTitle">
             From London to Los Angeles,<br>
@@ -113,50 +113,49 @@
           <p class="globe-trust__desc">
             Our system doesn't care about your timezone, your market, or your experience level.
             Students across 56 countries have passed funded evaluations using the exact same
-            rules-based approach. Here's a small slice of the roster.
+            rules-based approach.
           </p>
-          <dl class="globe-trust__stats">
-            <div>
-              <dt>1,500+</dt>
-              <dd>Students educated</dd>
-            </div>
-            <div>
-              <dt>56</dt>
-              <dd>Countries</dd>
-            </div>
-            <div>
-              <dt>$3.2M</dt>
-              <dd>Total funded</dd>
-            </div>
-            <div>
-              <dt>Since 2019</dt>
-              <dd>Operating globally</dd>
-            </div>
-          </dl>
-        </div>
+        </header>
 
         <div class="globe-trust__stage">
           <svg class="globe" viewBox="0 0 400 400" role="img" aria-label="Globe showing student locations worldwide">
             <defs>
               <radialGradient id="globeBg" cx="35%" cy="30%" r="75%">
-                <stop offset="0%" stop-color="#FFFFFF"/>
-                <stop offset="55%" stop-color="#F4FBFD"/>
-                <stop offset="100%" stop-color="#E6F1F5"/>
+                <stop offset="0%" stop-color="#0E1A22"/>
+                <stop offset="55%" stop-color="#0A1620"/>
+                <stop offset="100%" stop-color="#06101A"/>
               </radialGradient>
-              <radialGradient id="globeShade" cx="72%" cy="72%" r="60%">
-                <stop offset="0%" stop-color="rgba(10,128,167,0)"/>
-                <stop offset="100%" stop-color="rgba(10,128,167,.18)"/>
+              <radialGradient id="globeShine" cx="30%" cy="25%" r="55%">
+                <stop offset="0%" stop-color="rgba(39,204,231,.18)"/>
+                <stop offset="100%" stop-color="rgba(39,204,231,0)"/>
+              </radialGradient>
+              <radialGradient id="globeShade" cx="78%" cy="78%" r="55%">
+                <stop offset="0%" stop-color="rgba(0,0,0,0)"/>
+                <stop offset="100%" stop-color="rgba(0,0,0,.45)"/>
               </radialGradient>
               <radialGradient id="pinPulse" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#27CCE7" stop-opacity=".55"/>
+                <stop offset="0%" stop-color="#27CCE7" stop-opacity=".7"/>
                 <stop offset="100%" stop-color="#27CCE7" stop-opacity="0"/>
               </radialGradient>
               <radialGradient id="pinPulseActive" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#0A80A7" stop-opacity=".8"/>
-                <stop offset="100%" stop-color="#0A80A7" stop-opacity="0"/>
+                <stop offset="0%" stop-color="#27CCE7" stop-opacity=".95"/>
+                <stop offset="100%" stop-color="#27CCE7" stop-opacity="0"/>
               </radialGradient>
+              <filter id="gridGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="1.4" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="arcGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="b1"/>
+                <feGaussianBlur stdDeviation="6" in="SourceGraphic" result="b2"/>
+                <feMerge>
+                  <feMergeNode in="b2"/>
+                  <feMergeNode in="b1"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
               <filter id="pinGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3" result="b"/>
+                <feGaussianBlur stdDeviation="2.5" result="b"/>
                 <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
               <clipPath id="globeClip">
@@ -165,21 +164,18 @@
             </defs>
 
             <!-- sphere body -->
-            <circle cx="200" cy="200" r="180" fill="url(#globeBg)" stroke="rgba(10,128,167,.22)" stroke-width="1.5"/>
+            <circle cx="200" cy="200" r="180" fill="url(#globeBg)"/>
+            <circle cx="200" cy="200" r="180" fill="url(#globeShine)" pointer-events="none"/>
 
-            <!-- lat/long grid -->
-            <g clip-path="url(#globeClip)" class="globe-grid">
-              <!-- equator -->
+            <!-- lat/long grid (glows) -->
+            <g clip-path="url(#globeClip)" class="globe-grid" filter="url(#gridGlow)">
               <line x1="20" y1="200" x2="380" y2="200"/>
-              <!-- parallels -->
               <ellipse cx="200" cy="200" rx="180" ry="28"/>
               <ellipse cx="200" cy="200" rx="170" ry="58"/>
               <ellipse cx="200" cy="200" rx="155" ry="92"/>
               <ellipse cx="200" cy="200" rx="134" ry="128"/>
               <ellipse cx="200" cy="200" rx="100" ry="160"/>
-              <!-- prime meridian -->
               <line x1="200" y1="20" x2="200" y2="380"/>
-              <!-- meridians -->
               <ellipse cx="200" cy="200" rx="32" ry="180"/>
               <ellipse cx="200" cy="200" rx="64" ry="180"/>
               <ellipse cx="200" cy="200" rx="100" ry="180"/>
@@ -187,46 +183,45 @@
               <ellipse cx="200" cy="200" rx="160" ry="180"/>
             </g>
 
-            <!-- shadow on lower-right edge for 3D feel -->
-            <circle cx="200" cy="200" r="180" fill="url(#globeShade)" pointer-events="none"/>
+            <!-- glowing arc traced between transitions -->
+            <path id="arcTrace" class="arc-trace" d="" fill="none" stroke="#7DE4F3" stroke-width="2.6" stroke-linecap="round" filter="url(#arcGlow)"/>
 
-            <!-- callout line drawn from active pin to callout anchor -->
-            <line id="calloutLine" class="callout-line" x1="80" y1="145" x2="200" y2="360"
-                  stroke="#0A80A7" stroke-width="1" stroke-dasharray="2 5" opacity=".5"/>
+            <!-- terminator shadow for 3D feel -->
+            <circle cx="200" cy="200" r="180" fill="url(#globeShade)" pointer-events="none"/>
 
             <!-- pins -->
             <g class="pins">
-              <g class="pin" data-pin="la" transform="translate(80, 145)">
+              <g class="pin" data-pin="la" data-x="80" data-y="145" transform="translate(80, 145)">
                 <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
                 <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
                 <circle r="1.8" fill="#fff"/>
               </g>
-              <g class="pin" data-pin="manchester" transform="translate(184, 112)">
+              <g class="pin" data-pin="manchester" data-x="184" data-y="112" transform="translate(184, 112)">
                 <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
                 <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
                 <circle r="1.8" fill="#fff"/>
               </g>
-              <g class="pin" data-pin="paris" transform="translate(210, 130)">
+              <g class="pin" data-pin="paris" data-x="210" data-y="130" transform="translate(210, 130)">
                 <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
                 <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
                 <circle r="1.8" fill="#fff"/>
               </g>
-              <g class="pin" data-pin="dubai" transform="translate(272, 178)">
+              <g class="pin" data-pin="dubai" data-x="272" data-y="178" transform="translate(272, 178)">
                 <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
                 <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
                 <circle r="1.8" fill="#fff"/>
               </g>
-              <g class="pin" data-pin="mumbai" transform="translate(302, 196)">
+              <g class="pin" data-pin="mumbai" data-x="302" data-y="196" transform="translate(302, 196)">
                 <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
                 <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
                 <circle r="1.8" fill="#fff"/>
               </g>
-              <g class="pin" data-pin="tokyo" transform="translate(340, 158)">
+              <g class="pin" data-pin="tokyo" data-x="340" data-y="158" transform="translate(340, 158)">
                 <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
                 <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
                 <circle r="1.8" fill="#fff"/>
               </g>
-              <g class="pin" data-pin="saopaulo" transform="translate(126, 270)">
+              <g class="pin" data-pin="saopaulo" data-x="126" data-y="270" transform="translate(126, 270)">
                 <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
                 <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
                 <circle r="1.8" fill="#fff"/>
@@ -234,8 +229,8 @@
             </g>
           </svg>
 
-          <!-- rotating student callout -->
-          <figure class="student-callout" id="studentCallout" aria-live="polite">
+          <!-- pop-up student callout (positioned at active pin via JS) -->
+          <figure class="student-callout" id="studentCallout" aria-live="polite" data-pos="below">
             <div class="student-callout__avatar" id="studentAvatar">JM</div>
             <figcaption class="student-callout__info">
               <div class="student-callout__name" id="studentName">John Martinez</div>
@@ -244,6 +239,25 @@
             </figcaption>
           </figure>
         </div>
+
+        <dl class="globe-trust__stats">
+          <div>
+            <dt>1,500+</dt>
+            <dd>Students educated</dd>
+          </div>
+          <div>
+            <dt>56</dt>
+            <dd>Countries</dd>
+          </div>
+          <div>
+            <dt>$3.2M</dt>
+            <dd>Total funded</dd>
+          </div>
+          <div>
+            <dt>Since 2019</dt>
+            <dd>Operating globally</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
