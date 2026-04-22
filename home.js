@@ -160,11 +160,17 @@
   };
 
   // SVG coords (0–400) → percentage of the stage div.
+  // Card is always anchored BELOW the pin so it never flips sides
+  // mid-rotation (which read as a jarring jump between transitions).
+  // Horizontal position is clamped so the card stays inside the stage
+  // even for edge pins like Tokyo and LA.
   const positionCallout = (pin) => {
     if (!callout || !pin) return;
-    callout.style.left = (pin.x / 400) * 100 + '%';
-    callout.style.top = (pin.y / 400) * 100 + '%';
-    callout.dataset.pos = pin.y < 180 ? 'below' : 'above';
+    const xPct = (pin.x / 400) * 100;
+    const yPct = (pin.y / 400) * 100;
+    callout.style.left = Math.max(22, Math.min(78, xPct)) + '%';
+    callout.style.top = yPct + '%';
+    callout.dataset.pos = 'below';
   };
 
   const traceArc = (from, to) => {
