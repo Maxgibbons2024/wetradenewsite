@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WeTrade — Trade by mechanical rules. Get funded.</title>
+  <meta name="description" content="Forex Kickstarter teaches a rules-based trading system and walks you through a funded-account evaluation — from London and Dubai, since 2019.">
+  <link rel="icon" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%2028%22%3E%3Ctext%20x%3D%220%22%20y%3D%2222%22%20font-family%3D%22Montserrat%2C%20sans-serif%22%20font-weight%3D%22700%22%20font-size%3D%2224%22%20letter-spacing%3D%22-0.5%22%20fill%3D%22%2327CCE7%22%3Ewe%3C%2Ftext%3E%3Ctext%20x%3D%2229%22%20y%3D%2222%22%20font-family%3D%22Montserrat%2C%20sans-serif%22%20font-weight%3D%22500%22%20font-size%3D%2224%22%20letter-spacing%3D%22-0.5%22%20fill%3D%22%23252A2E%22%3ETrade%3C%2Ftext%3E%3C%2Fsvg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles-home.css">
+</head>
+<body class="home">
+
+  <!-- =============== NAV =============== -->
+  <header class="nav" id="siteNav" data-scrolled="false">
+    <div class="container container--wide nav__inner">
+      <a class="nav__logo" href="#top" aria-label="WeTrade — home">
+        <svg width="96" height="22" viewBox="0 0 120 28" role="img" aria-label="WeTrade">
+          <text x="0" y="22" font-family="Montserrat, sans-serif" font-weight="700" font-size="24" letter-spacing="-0.5" fill="#27CCE7">we</text>
+          <text x="29" y="22" font-family="Montserrat, sans-serif" font-weight="500" font-size="24" letter-spacing="-0.5" fill="#252A2E">Trade</text>
+        </svg>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a class="nav__link" href="#roadmap">How it works</a>
+        <a class="nav__link" href="#results">Results</a>
+        <a class="nav__link" href="#youtube">YouTube</a>
+        <a class="nav__link" href="#insights">Insights</a>
+      </nav>
+      <div class="nav__end">
+        <a class="nav__contact" href="mailto:hello@wetrade.io">Contact</a>
+        <a class="nav__cta" href="#book">Get started</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navSheet">
+        <span style="letter-spacing:.08em">MENU</span>
+        <svg viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <path d="M2 2h18M2 7h18M2 12h12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav__sheet" id="navSheet" hidden>
+      <div class="nav__sheet-head">
+        <svg width="88" height="20" viewBox="0 0 120 28" role="img" aria-label="WeTrade">
+          <text x="0" y="22" font-family="Montserrat, sans-serif" font-weight="700" font-size="24" letter-spacing="-0.5" fill="#27CCE7">we</text>
+          <text x="29" y="22" font-family="Montserrat, sans-serif" font-weight="500" font-size="24" letter-spacing="-0.5" fill="#ffffff">Trade</text>
+        </svg>
+        <button class="nav__sheet-close" id="navSheetClose" type="button" aria-label="Close menu">
+          CLOSE
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M2 2l10 10M12 2L2 12"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="nav__sheet-nav" aria-label="Mobile primary">
+        <a class="nav__sheet-link" href="#roadmap">How it works<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".5" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+        <a class="nav__sheet-link" href="#results">Results<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".5" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+        <a class="nav__sheet-link" href="#youtube">YouTube<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".5" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+        <a class="nav__sheet-link" href="#insights">Insights<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".5" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+        <a class="nav__sheet-link" href="mailto:hello@wetrade.io">Contact<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".5" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5"/></svg></a>
+      </nav>
+      <div class="nav__sheet-foot">
+        <a class="btn btn--brand btn--lg" href="#book">Book a call</a>
+        <div class="nav__sheet-note">
+          WeTrade.io Limited (UK) · WeTrade Middle East FZ-LLC<br>
+          Trading education. Not regulated financial advice.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- =============== HERO A · Editorial quiet =============== -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__inner">
+        <p class="eyebrow eyebrow--wide eyebrow--dot hero__eyebrow">
+          Forex Kickstarter · Est. 2019 · London &amp; Dubai
+        </p>
+        <h1 id="heroTitle" class="hero__title">
+          Trade by<br>
+          mechanical rules.<br>
+          Get <span class="grad-text">funded</span>.
+        </h1>
+        <div class="hero__row">
+          <p class="hero__lede">
+            Forex Kickstarter teaches you a rules-based trading system and walks you
+            through a funded-account evaluation — so you can trade real capital without
+            risking your own. One&#8209;to&#8209;one mentorship, six-month refund guarantee.
+          </p>
+          <div class="hero__stat">
+            <div class="hero__stat-num">$3.2M</div>
+            <div class="hero__stat-label">funded across our students</div>
+          </div>
+          <div class="hero__ctas">
+            <a class="btn btn--brand btn--lg" href="#book">Book a call</a>
+            <a class="btn btn--ghost btn--lg" href="#roadmap">How it works</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== MAP TRUST =============== -->
+    <section class="map-trust" aria-labelledby="mapTrustTitle">
+      <svg class="map-trust__bg" aria-hidden="true">
+        <defs>
+          <pattern id="mtGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M48 0H0V48" fill="none" stroke="rgba(10,128,167,.09)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#mtGrid)"/>
+      </svg>
+
+      <div class="map-trust__inner">
+        <div class="map-trust__head">
+          <div class="map-trust__copy">
+            <p class="eyebrow">Two entities · One company</p>
+            <h2 id="mapTrustTitle">
+              An operating business<br>
+              with students in <span class="grad-text">56&nbsp;countries</span>.
+            </h2>
+          </div>
+          <p class="map-trust__desc">
+            We operate from two registered entities — WeTrade.io Limited in London
+            and WeTrade Middle East FZ-LLC in Dubai. Course delivery, mentoring
+            and support are handled from both.
+          </p>
+        </div>
+
+        <div class="map-trust__card">
+          <svg class="world-map" viewBox="0 0 1000 380" aria-hidden="true">
+            <defs>
+              <filter id="mtGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <radialGradient id="mtPulse" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#27CCE7" stop-opacity=".5"/>
+                <stop offset="100%" stop-color="#27CCE7" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="mtGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#27CCE7"/>
+                <stop offset="100%" stop-color="#0A80A7"/>
+              </linearGradient>
+            </defs>
+
+            <!-- latitude lines -->
+            <path d="M 20 95 Q 500 77, 980 95" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
+            <path d="M 20 150 Q 500 132, 980 150" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
+            <path d="M 20 205 Q 500 187, 980 205" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
+            <path d="M 20 260 Q 500 242, 980 260" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
+            <path d="M 20 315 Q 500 297, 980 315" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
+
+            <!-- UK silhouette -->
+            <g transform="translate(320, 70)">
+              <path d="M 40 30 Q 48 12, 64 16 Q 82 10, 92 26 L 100 44 Q 108 56, 98 70 L 104 88 Q 110 104, 98 118 Q 106 138, 90 150 L 72 158 Q 54 164, 44 152 Q 30 148, 28 130 L 22 110 Q 14 92, 26 78 L 20 60 Q 16 44, 30 36 Z"
+                    fill="rgba(10,128,167,.06)" stroke="rgba(10,128,167,.35)" stroke-width="1.25"/>
+              <path d="M 4 104 Q 0 90, 12 86 Q 22 92, 18 106 Q 14 118, 4 112 Z"
+                    fill="rgba(10,128,167,.06)" stroke="rgba(10,128,167,.35)" stroke-width="1.25"/>
+            </g>
+
+            <!-- Arabian Peninsula (UAE) -->
+            <g transform="translate(610, 140)">
+              <path d="M 10 30 Q 20 10, 48 14 L 96 8 Q 130 4, 168 22 L 210 48 Q 230 60, 232 86 L 230 130 Q 224 160, 200 176 L 160 184 Q 120 190, 90 172 L 50 150 Q 18 134, 10 96 Z"
+                    fill="rgba(10,128,167,.06)" stroke="rgba(10,128,167,.35)" stroke-width="1.25"/>
+            </g>
+
+            <!-- connection arc -->
+            <path d="M 378 150 Q 560 40, 820 210" stroke="#27CCE7" stroke-width="1.5"
+                  stroke-dasharray="2 6" fill="none" opacity=".5"/>
+
+            <!-- London pin -->
+            <g transform="translate(378, 150)">
+              <circle class="pulse-halo" r="36" fill="url(#mtPulse)"/>
+              <circle r="7" fill="#27CCE7" filter="url(#mtGlow)"/>
+              <circle r="3" fill="#fff"/>
+              <g transform="translate(16, -6)">
+                <rect x="-2" y="-14" width="110" height="36" rx="8" fill="#fff" stroke="rgba(10,128,167,.15)"/>
+                <text x="10" y="0" font-family="Montserrat, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" fill="#252A2E">LONDON</text>
+                <text x="10" y="14" font-family="Montserrat, sans-serif" font-size="10" font-weight="500" fill="#555E64">WeTrade.io Ltd · UK</text>
+              </g>
+            </g>
+
+            <!-- Dubai pin -->
+            <g transform="translate(820, 210)">
+              <circle class="pulse-halo" r="36" fill="url(#mtPulse)"/>
+              <circle r="7" fill="#0A80A7" filter="url(#mtGlow)"/>
+              <circle r="3" fill="#fff"/>
+              <g transform="translate(-132, -6)">
+                <rect x="0" y="-14" width="116" height="36" rx="8" fill="#fff" stroke="rgba(10,128,167,.15)"/>
+                <text x="10" y="0" font-family="Montserrat, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" fill="#252A2E">DUBAI</text>
+                <text x="10" y="14" font-family="Montserrat, sans-serif" font-size="10" font-weight="500" fill="#555E64">WeTrade ME FZ-LLC</text>
+              </g>
+            </g>
+
+            <!-- headline stat panel -->
+            <g transform="translate(500, 280)">
+              <rect x="-120" y="-46" width="240" height="76" rx="14" fill="url(#mtGrad)"/>
+              <text x="0" y="-16" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="11" font-weight="600" letter-spacing="1.4" fill="rgba(255,255,255,.7)">STUDENTS EDUCATED</text>
+              <text x="0" y="16" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="36" font-weight="700" letter-spacing="-0.5" fill="#fff">1,500+</text>
+            </g>
+          </svg>
+        </div>
+
+        <dl class="map-trust__stats">
+          <div>
+            <dt class="map-trust__stat-v">1,500+</dt>
+            <dd class="map-trust__stat-k">Students educated</dd>
+          </div>
+          <div>
+            <dt class="map-trust__stat-v">Since 2019</dt>
+            <dd class="map-trust__stat-k">Years running</dd>
+          </div>
+          <div>
+            <dt class="map-trust__stat-v">London · Dubai</dt>
+            <dd class="map-trust__stat-k">Offices</dd>
+          </div>
+          <div>
+            <dt class="map-trust__stat-v">240+</dt>
+            <dd class="map-trust__stat-k">Live sessions / year</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- =============== PROGRAMME / ROADMAP =============== -->
+    <section class="programme" id="roadmap" aria-labelledby="programmeTitle">
+      <div class="programme__inner">
+        <div class="programme__grid">
+          <aside>
+            <p class="eyebrow">The roadmap</p>
+            <h2 id="programmeTitle" class="programme__title">From zero experience to funded trader, in five steps.</h2>
+            <p class="programme__desc">
+              We don't teach discretionary trading. We teach a mechanical system
+              — rules you can test, repeat, and execute without emotion — and
+              we walk you through the funded-account process end to end.
+            </p>
+            <a class="programme__cta" href="#book">
+              Choose your program
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 3l5 5-5 5"/></svg>
+            </a>
+          </aside>
+
+          <ol class="programme__rows">
+            <li class="programme__row">
+              <div class="programme__n">01<small>Month 1</small></div>
+              <h3 class="programme__step-title">Learn the mechanical rules</h3>
+              <p class="programme__step-body">A fixed, rules-based system: X + Y + Z = place trade. No subjective setups, no indicators to second-guess. If the conditions are met, you take the trade.</p>
+            </li>
+            <li class="programme__row">
+              <div class="programme__n">02<small>Months 2–3</small></div>
+              <h3 class="programme__step-title">Build confidence through backtesting</h3>
+              <p class="programme__step-body">Demo trading and structured backtesting until the rules become reflex. Journal every trade, review with your mentor, refine your execution.</p>
+            </li>
+            <li class="programme__row">
+              <div class="programme__n">03<small>Months 3–4</small></div>
+              <h3 class="programme__step-title">Pass a funded-account evaluation</h3>
+              <p class="programme__step-body">We walk you through a 1-step evaluation with our funding partner. Hit the profit target, respect the drawdown rules, unlock the capital.</p>
+            </li>
+            <li class="programme__row">
+              <div class="programme__n">04<small>Months 4–7</small></div>
+              <h3 class="programme__step-title">Receive your first payouts</h3>
+              <p class="programme__step-body">Trade the funded account. First payouts typically land in months 4–7 at 3–5% on six-figure funding — paid out on a regular schedule.</p>
+            </li>
+            <li class="programme__row">
+              <div class="programme__n">05<small>Month 7+</small></div>
+              <h3 class="programme__step-title">Scale up your funding</h3>
+              <p class="programme__step-body">As you build a track record, you qualify for larger accounts. Bigger funding, bigger payouts, same mechanical rules.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== RESULTS =============== -->
+    <section class="results" id="results" aria-labelledby="resultsTitle">
+      <div class="results__inner">
+        <header class="results__head">
+          <div>
+            <p class="eyebrow">Student results</p>
+            <h2 id="resultsTitle" class="results__title">
+              Six students. <span class="teal">$3.1M funded</span>.<br>
+              Same mechanical&nbsp;rules.
+            </h2>
+          </div>
+          <dl class="results__stats">
+            <div>
+              <dt class="results__stat-n">$3.1M</dt>
+              <dd class="results__stat-k">total funded</dd>
+            </div>
+            <div>
+              <dt class="results__stat-n">6.9 mo</dt>
+              <dd class="results__stat-k">median to funded</dd>
+            </div>
+          </dl>
+        </header>
+
+        <ul class="results__grid" role="list">
+          <li class="result-card">
+            <div class="result-card__kicker">Funded in 4 months</div>
+            <div class="result-card__funded">$600k</div>
+            <div class="result-card__name">Paul Beades</div>
+            <div class="result-card__note">Eight years of failure before the mechanical rules clicked.</div>
+          </li>
+          <li class="result-card">
+            <div class="result-card__kicker">Funded in 5 months</div>
+            <div class="result-card__funded">$100k</div>
+            <div class="result-card__name">Harry Murphy</div>
+            <div class="result-card__note">Complete beginner — no markets experience at day one.</div>
+          </li>
+          <li class="result-card result-card--hero">
+            <div class="result-card__kicker">Funded in 12 months</div>
+            <div class="result-card__funded">$1.4M</div>
+            <div class="result-card__name">Calvin Steane</div>
+            <div class="result-card__note">Had been scammed twice before joining. Now Fast Track alumnus.</div>
+          </li>
+          <li class="result-card">
+            <div class="result-card__kicker">Funded in 7 months</div>
+            <div class="result-card__funded">$600k</div>
+            <div class="result-card__name">Chris Coyne</div>
+            <div class="result-card__note">Acquired funding alongside a full-time job.</div>
+          </li>
+          <li class="result-card">
+            <div class="result-card__kicker">Funded in 8 months</div>
+            <div class="result-card__funded">$200k</div>
+            <div class="result-card__name">Joe Hubbard</div>
+            <div class="result-card__note">Property developer, traded around site visits.</div>
+          </li>
+          <li class="result-card">
+            <div class="result-card__kicker">Funded in 6 months</div>
+            <div class="result-card__funded">$200k</div>
+            <div class="result-card__name">Neil Ashby</div>
+            <div class="result-card__note">Full-time trader — added $200k to his existing portfolio.</div>
+          </li>
+        </ul>
+
+        <ul class="pull-quotes" role="list">
+          <li>
+            <figure class="pull-quote">
+              <svg class="pull-quote__mark" viewBox="0 0 24 18" aria-hidden="true"><path d="M0 18V10c0-5 3-8 8-10l1 3c-3 1-5 3-5 6h5v9H0zm13 0v-8c0-5 3-8 8-10l1 3c-3 1-5 3-5 6h5v9h-9z"/></svg>
+              <blockquote>Eight years of losing. Four months of WeTrade. I stopped second-guessing and started following the rules — that was the whole difference.</blockquote>
+              <figcaption class="pull-quote__cap">
+                <span class="avatar" aria-hidden="true">PB</span>
+                <div>
+                  <div class="pull-quote__name">Paul Beades</div>
+                  <div class="pull-quote__role">Pro graduate · London</div>
+                </div>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="pull-quote">
+              <svg class="pull-quote__mark" viewBox="0 0 24 18" aria-hidden="true"><path d="M0 18V10c0-5 3-8 8-10l1 3c-3 1-5 3-5 6h5v9H0zm13 0v-8c0-5 3-8 8-10l1 3c-3 1-5 3-5 6h5v9h-9z"/></svg>
+              <blockquote>I had never placed a trade before joining. The mentorship is what made it click — my mentor replied inside an hour, every time.</blockquote>
+              <figcaption class="pull-quote__cap">
+                <span class="avatar" aria-hidden="true">HM</span>
+                <div>
+                  <div class="pull-quote__name">Harry Murphy</div>
+                  <div class="pull-quote__role">Kickstarter · Manchester</div>
+                </div>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="pull-quote">
+              <svg class="pull-quote__mark" viewBox="0 0 24 18" aria-hidden="true"><path d="M0 18V10c0-5 3-8 8-10l1 3c-3 1-5 3-5 6h5v9H0zm13 0v-8c0-5 3-8 8-10l1 3c-3 1-5 3-5 6h5v9h-9z"/></svg>
+              <blockquote>I work a full-time job. The system is quiet enough to run around it. I did the work; they did the teaching. Fair trade.</blockquote>
+              <figcaption class="pull-quote__cap">
+                <span class="avatar" aria-hidden="true">CC</span>
+                <div>
+                  <div class="pull-quote__name">Chris Coyne</div>
+                  <div class="pull-quote__role">Pro graduate · Belfast</div>
+                </div>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <div class="disclaimer-pill">
+          <p class="disclaimer-pill__text">
+            Results are from named students who completed the program. Funded-account
+            figures refer to capital allocations from third-party prop firms following a
+            successful evaluation. Individual results vary.
+          </p>
+          <a class="disclaimer-pill__link" href="#">
+            Read case studies
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== YOUTUBE =============== -->
+    <section class="yt" id="youtube" aria-labelledby="ytTitle">
+      <div class="yt__inner">
+        <div class="yt__head">
+          <div>
+            <p class="eyebrow yt__eyebrow">
+              <svg viewBox="0 0 28 20" fill="none" aria-hidden="true">
+                <rect width="28" height="20" rx="5" fill="#FF0000"/>
+                <path d="M11 6l7 4-7 4V6z" fill="#fff"/>
+              </svg>
+              Free on YouTube
+            </p>
+            <h2 id="ytTitle" class="yt__title">
+              See the system in action<br>before you book a&nbsp;call.
+            </h2>
+            <p class="yt__desc">
+              We publish student breakdowns, live market notes, and the frameworks
+              we teach — every week. Over three million views and counting.
+            </p>
+          </div>
+
+          <aside class="yt-channel">
+            <div class="yt-channel__head">
+              <div class="avatar avatar--lg" aria-hidden="true">we</div>
+              <div>
+                <div class="yt-channel__name">@WeTradeKickstarter</div>
+                <div class="yt-channel__sub">WeTrade · Forex Kickstarter</div>
+              </div>
+            </div>
+            <dl class="yt-channel__stats">
+              <div>
+                <dt class="yt-channel__stat-v">84.2k</dt>
+                <dd class="yt-channel__stat-k">subscribers</dd>
+              </div>
+              <div>
+                <dt class="yt-channel__stat-v">412</dt>
+                <dd class="yt-channel__stat-k">videos</dd>
+              </div>
+              <div>
+                <dt class="yt-channel__stat-v">3.1M</dt>
+                <dd class="yt-channel__stat-k">views</dd>
+              </div>
+            </dl>
+            <a class="yt-channel__subscribe" href="#" rel="noopener">
+              <svg width="18" height="13" viewBox="0 0 28 20" fill="none" aria-hidden="true">
+                <rect width="28" height="20" rx="5" fill="#fff"/>
+                <path d="M11 6l7 4-7 4V6z" fill="#FF0000"/>
+              </svg>
+              Subscribe on YouTube
+            </a>
+          </aside>
+        </div>
+
+        <ul class="yt__grid" role="list">
+          <li>
+            <a class="yt-card" href="#" aria-label="Watch: Paul funded $600k in 4 months">
+              <div class="yt-card__thumb yt-card__thumb--1">
+                <svg class="yt-card__trace" viewBox="0 0 200 120" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 0 90 L 30 80 L 55 95 L 90 60 L 120 70 L 155 35 L 200 50" stroke="#fff" stroke-width="1.2" fill="none"/>
+                </svg>
+                <span class="yt-card__kicker">STUDENT STORY</span>
+                <span class="yt-card__play"><span class="yt-card__play-btn"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2l8 5-8 5V2z" fill="#252A2E"/></svg></span></span>
+                <span class="yt-card__duration">24:18</span>
+              </div>
+              <div>
+                <div class="yt-card__title">Paul funded $600k in 4 months — full walkthrough</div>
+                <div class="yt-card__meta">142k views</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="yt-card" href="#" aria-label="Watch: The 4 rules that pass a funded evaluation">
+              <div class="yt-card__thumb yt-card__thumb--2">
+                <svg class="yt-card__trace" viewBox="0 0 200 120" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 0 80 L 28 95 L 60 60 L 95 75 L 130 40 L 165 55 L 200 25" stroke="#fff" stroke-width="1.2" fill="none"/>
+                </svg>
+                <span class="yt-card__kicker">FRAMEWORK</span>
+                <span class="yt-card__play"><span class="yt-card__play-btn"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2l8 5-8 5V2z" fill="#252A2E"/></svg></span></span>
+                <span class="yt-card__duration">17:02</span>
+              </div>
+              <div>
+                <div class="yt-card__title">The 4 rules that pass a funded evaluation</div>
+                <div class="yt-card__meta">286k views</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="yt-card" href="#" aria-label="Watch: Why mechanical trading beats discretionary">
+              <div class="yt-card__thumb yt-card__thumb--3">
+                <svg class="yt-card__trace" viewBox="0 0 200 120" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 0 70 L 35 85 L 70 55 L 110 80 L 140 50 L 175 70 L 200 40" stroke="#fff" stroke-width="1.2" fill="none"/>
+                </svg>
+                <span class="yt-card__kicker">FRAMEWORK</span>
+                <span class="yt-card__play"><span class="yt-card__play-btn"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2l8 5-8 5V2z" fill="#252A2E"/></svg></span></span>
+                <span class="yt-card__duration">19:41</span>
+              </div>
+              <div>
+                <div class="yt-card__title">Why mechanical trading beats discretionary — the data</div>
+                <div class="yt-card__meta">98k views</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="yt-card" href="#" aria-label="Watch: Live market breakdown — London session">
+              <div class="yt-card__thumb yt-card__thumb--4">
+                <svg class="yt-card__trace" viewBox="0 0 200 120" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 0 95 L 30 75 L 60 90 L 100 45 L 135 65 L 170 30 L 200 55" stroke="#fff" stroke-width="1.2" fill="none"/>
+                </svg>
+                <span class="yt-card__kicker">MARKET NOTE</span>
+                <span class="yt-card__play"><span class="yt-card__play-btn"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2l8 5-8 5V2z" fill="#252A2E"/></svg></span></span>
+                <span class="yt-card__duration">12:06</span>
+              </div>
+              <div>
+                <div class="yt-card__title">Live market breakdown — London session, April 14</div>
+                <div class="yt-card__meta">61k views</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =============== BOOK A CALL =============== -->
+    <section class="book" id="book" aria-labelledby="bookTitle">
+      <div class="book__inner">
+        <div class="book__grid">
+          <div>
+            <p class="eyebrow">Next step</p>
+            <h2 id="bookTitle" class="book__title">
+              Book a 30-minute call<br>
+              with an&nbsp;advisor.
+            </h2>
+            <p class="book__desc">
+              The best way to decide if Forex Kickstarter is right for you is to talk
+              to someone who has been through it. One call. One honest conversation.
+            </p>
+
+            <ul class="expect-list" role="list">
+              <li>
+                <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                  <circle cx="11" cy="11" r="10" fill="#EBFAFD"/>
+                  <path d="M6 11l3.5 3.5L16 8" stroke="#0A80A7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                A 30-minute conversation — no pitch, no pressure.
+              </li>
+              <li>
+                <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                  <circle cx="11" cy="11" r="10" fill="#EBFAFD"/>
+                  <path d="M6 11l3.5 3.5L16 8" stroke="#0A80A7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                An honest read on whether the program is right for you.
+              </li>
+              <li>
+                <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                  <circle cx="11" cy="11" r="10" fill="#EBFAFD"/>
+                  <path d="M6 11l3.5 3.5L16 8" stroke="#0A80A7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Answers to the three or four questions you actually have.
+              </li>
+              <li>
+                <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                  <circle cx="11" cy="11" r="10" fill="#EBFAFD"/>
+                  <path d="M6 11l3.5 3.5L16 8" stroke="#0A80A7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                If it is a fit, next steps. If not, we will tell you.
+              </li>
+            </ul>
+
+            <div class="advisor">
+              <span class="avatar avatar--lg" aria-hidden="true">JW</span>
+              <div>
+                <div class="advisor__name">James Whitfield</div>
+                <div class="advisor__role">Head of Education · 400+ student calls</div>
+                <div class="advisor__status">
+                  <span class="advisor__dot">Available this week</span>
+                  <span aria-hidden="true">·</span>
+                  <span>Avg reply &lt; 2h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="book__panel" id="bookForm" novalidate>
+            <div class="book__cal-head">
+              <div>
+                <div class="book__cal-label" id="calLabel">April 2026 · Week 17</div>
+                <div class="book__cal-title" id="calTitle">Pick a 30-minute slot</div>
+              </div>
+              <div class="book__cal-nav">
+                <button type="button" data-dir="-1" aria-label="Previous week">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7.5 2L4 6l3.5 4"/></svg>
+                </button>
+                <button type="button" data-dir="1" aria-label="Next week">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4.5 2L8 6l-3.5 4"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="book__slots" role="radiogroup" aria-label="Available 30-minute slots">
+              <button type="button" class="slot" role="radio" aria-checked="false" tabindex="-1" data-slot="Tue · 11:00">Tue · 11:00</button>
+              <button type="button" class="slot" role="radio" aria-checked="false" tabindex="-1" data-slot="Tue · 14:30">Tue · 14:30</button>
+              <button type="button" class="slot" role="radio" aria-checked="false" tabindex="-1" data-slot="Wed · 10:00">Wed · 10:00</button>
+              <button type="button" class="slot" role="radio" aria-checked="true"  tabindex="0"  data-slot="Wed · 15:30">Wed · 15:30</button>
+              <button type="button" class="slot" role="radio" aria-checked="false" tabindex="-1" data-slot="Thu · 09:30">Thu · 09:30</button>
+              <button type="button" class="slot" role="radio" aria-checked="false" tabindex="-1" data-slot="Thu · 16:00">Thu · 16:00</button>
+              <button type="button" class="slot" role="radio" aria-checked="false" tabindex="-1" data-slot="Fri · 11:30">Fri · 11:30</button>
+              <button type="button" class="slot" role="radio" aria-checked="false" tabindex="-1" data-slot="Fri · 13:00">Fri · 13:00</button>
+            </div>
+
+            <div class="book__selected">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#0A80A7" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg>
+              Selected: <strong id="selectedSlot">Wed · 15:30</strong> · UK time (GMT+1)
+            </div>
+
+            <input type="hidden" name="slot" id="selectedSlotInput" value="Wed · 15:30">
+
+            <div class="book__form-row">
+              <label>
+                <span class="book__form-label">Your name</span>
+                <input name="name" placeholder="First and last" autocomplete="name" required>
+              </label>
+              <label>
+                <span class="book__form-label">Email</span>
+                <input name="email" type="email" placeholder="you@email.com" autocomplete="email" required>
+              </label>
+            </div>
+            <label>
+              <span class="book__form-label">Where are you in your trading journey?</span>
+              <select name="experience">
+                <option>Complete beginner</option>
+                <option>Traded before, no consistency yet</option>
+                <option>Consistent but not funded</option>
+                <option>Already funded — looking to scale</option>
+              </select>
+            </label>
+            <button type="submit" class="book__submit" id="bookSubmit">
+              Confirm <span id="bookSubmitLabel">Wed · 15:30</span>
+            </button>
+            <p class="book__status" id="bookStatus" role="status" aria-live="polite" hidden></p>
+            <p class="book__foot-note">
+              Prefer email? <a href="mailto:hello@wetrade.io">hello@wetrade.io</a> · We reply in under 2 hours.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== INSIGHTS =============== -->
+    <section class="insights" id="insights" aria-labelledby="insightsTitle">
+      <div class="insights__inner">
+        <header class="insights__head">
+          <div>
+            <p class="eyebrow">Insights</p>
+            <h2 id="insightsTitle" class="insights__title">Market notes and frameworks,<br>from the team teaching the system.</h2>
+          </div>
+          <a class="insights__all" href="#">
+            All posts
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 3l5 5-5 5"/></svg>
+          </a>
+        </header>
+
+        <div class="insights__grid">
+          <a class="insight-featured" href="#">
+            <div class="insight-featured__cover">
+              <svg class="insight-featured__trace" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="insGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0" stop-color="#fff"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M 0 220 L 40 200 L 80 230 L 120 180 L 160 210 L 200 120 L 240 160 L 280 90 L 320 130 L 360 60 L 400 110" stroke="#fff" stroke-width="1.5" fill="none"/>
+                <path d="M 0 220 L 40 200 L 80 230 L 120 180 L 160 210 L 200 120 L 240 160 L 280 90 L 320 130 L 360 60 L 400 110 L 400 300 L 0 300 Z" fill="url(#insGrad)" opacity=".25"/>
+              </svg>
+              <div class="insight-featured__kicker">FRAMEWORK</div>
+              <div>
+                <div class="insight-featured__title">Why we teach mechanical rules — and refuse to teach "gut feel"</div>
+                <div class="insight-featured__meta">
+                  <span>James Whitfield</span><span aria-hidden="true">·</span>
+                  <span>Apr 14, 2026</span><span aria-hidden="true">·</span>
+                  <span>8 min read</span>
+                </div>
+              </div>
+            </div>
+            <p class="insight-featured__dek">
+              Discretionary trading works for a tiny minority and fails most people who try it. A breakdown of why rules-based systems produce consistency, and what that looks like in practice.
+            </p>
+          </a>
+
+          <div class="insights__list">
+            <a class="insight-card" href="#">
+              <span class="insight-card__kicker">FUNDED TRADING</span>
+              <span class="insight-card__title">Passing a 1-step funded evaluation: the four rules that matter</span>
+              <span class="insight-card__meta"><span>Sarah Nguyen</span><span aria-hidden="true">·</span><span>Apr 2, 2026</span></span>
+            </a>
+            <a class="insight-card" href="#">
+              <span class="insight-card__kicker">MARKET NOTE</span>
+              <span class="insight-card__title">The rule that keeps our system working in choppy markets</span>
+              <span class="insight-card__meta"><span>Adeel Rahman</span><span aria-hidden="true">·</span><span>Mar 21, 2026</span></span>
+            </a>
+            <a class="insight-card" href="#">
+              <span class="insight-card__kicker">FRAMEWORK</span>
+              <span class="insight-card__title">The trading journal we make every student keep</span>
+              <span class="insight-card__meta"><span>Priya Shah</span><span aria-hidden="true">·</span><span>Mar 6, 2026</span></span>
+            </a>
+            <a class="insight-card" href="#">
+              <span class="insight-card__kicker">FUNDED TRADING</span>
+              <span class="insight-card__title">Scaling from $25k to $600k: what actually changes?</span>
+              <span class="insight-card__meta"><span>Marcus Okafor</span><span aria-hidden="true">·</span><span>Feb 18, 2026</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== CAREERS =============== -->
+    <section class="careers" id="careers" aria-labelledby="careersTitle">
+      <div class="careers__inner">
+        <div class="careers__grid">
+          <div>
+            <p class="eyebrow">Careers</p>
+            <h2 id="careersTitle" class="careers__title">We're hiring across<br>London and Dubai.</h2>
+            <p class="careers__desc">
+              Four open roles — we read every application. If you want to work on
+              trading education at the craft level, we probably want to talk to you.
+            </p>
+          </div>
+          <div class="careers__list">
+            <a class="role" href="#" aria-label="Head of Content — Marketing, London, Full-time">
+              <span class="role__title">Head of Content</span>
+              <span class="role__meta">Marketing</span>
+              <span class="role__meta">London</span>
+              <span class="role__apply">
+                Apply
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h8M8 3l4 4-4 4"/></svg>
+              </span>
+            </a>
+            <a class="role" href="#" aria-label="Trader-Mentor (EMEA session) — Education, Dubai, Full-time">
+              <span class="role__title">Trader-Mentor (EMEA session)</span>
+              <span class="role__meta">Education</span>
+              <span class="role__meta">Dubai</span>
+              <span class="role__apply">
+                Apply
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h8M8 3l4 4-4 4"/></svg>
+              </span>
+            </a>
+            <a class="role" href="#" aria-label="Community Lead — Operations, London / remote, Full-time">
+              <span class="role__title">Community Lead</span>
+              <span class="role__meta">Operations</span>
+              <span class="role__meta">London / remote</span>
+              <span class="role__apply">
+                Apply
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h8M8 3l4 4-4 4"/></svg>
+              </span>
+            </a>
+            <a class="role" href="#" aria-label="Video Producer — Content, London, Full-time">
+              <span class="role__title">Video Producer</span>
+              <span class="role__meta">Content</span>
+              <span class="role__meta">London</span>
+              <span class="role__apply">
+                Apply
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h8M8 3l4 4-4 4"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============== FOOTER =============== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__cols">
+        <div class="footer__brand">
+          <svg width="96" height="22" viewBox="0 0 120 28" role="img" aria-label="WeTrade">
+            <text x="0" y="22" font-family="Montserrat, sans-serif" font-weight="700" font-size="24" letter-spacing="-0.5" fill="#27CCE7">we</text>
+            <text x="29" y="22" font-family="Montserrat, sans-serif" font-weight="500" font-size="24" letter-spacing="-0.5" fill="#ffffff">Trade</text>
+          </svg>
+          <p class="footer__brand-desc">
+            WeTrade teaches a mechanical forex trading system and walks students
+            through a funded-account evaluation — from London and Dubai, since 2019.
+          </p>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Company</div>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="mailto:hello@wetrade.io">Contact</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Programs</div>
+          <ul>
+            <li><a href="#">Forex Kickstarter</a></li>
+            <li><a href="#">Kickstarter Pro</a></li>
+            <li><a href="#">FK Fast Track</a></li>
+            <li><a href="#">Compare</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">How it works</div>
+          <ul>
+            <li><a href="#roadmap">The 5-step roadmap</a></li>
+            <li><a href="#">Mechanical rules</a></li>
+            <li><a href="#">Funded evaluation</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Insights</div>
+          <ul>
+            <li><a href="#insights">All posts</a></li>
+            <li><a href="#">Frameworks</a></li>
+            <li><a href="#">Market notes</a></li>
+            <li><a href="#">Funded trading</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Legal</div>
+          <ul>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Risk disclosure</a></li>
+            <li><a href="#">Guarantee terms</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__entities">
+        <div>
+          <div class="footer__entity-tag">United Kingdom</div>
+          <div class="footer__entity-name">WeTrade.io Limited</div>
+          <address class="footer__entity-addr" style="font-style:normal">
+            <div>20 Primrose Street, 4th Floor</div>
+            <div>London EC2A 2EW, United Kingdom</div>
+            <div class="footer__entity-reg">Companies House · 12847991</div>
+          </address>
+        </div>
+        <div>
+          <div class="footer__entity-tag">United Arab Emirates</div>
+          <div class="footer__entity-name">WeTrade Middle East FZ-LLC</div>
+          <address class="footer__entity-addr" style="font-style:normal">
+            <div>Meydan Free Zone, Level 11</div>
+            <div>The Meydan Hotel, Nad Al Sheba</div>
+            <div>Dubai, United Arab Emirates</div>
+            <div class="footer__entity-reg">DMCC · License 2408472</div>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer__fine">
+        <p class="footer__disclaimer">
+          WeTrade provides educational material and connects students with third-party
+          funded-account providers. Nothing on this site constitutes financial, investment,
+          tax, or legal advice. Trading carries risk; past results are not indicative of
+          future outcomes. Six-month money-back guarantee subject to the terms in the
+          student agreement.
+        </p>
+        <div>© 2026 WeTrade Group</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="home.js" defer></script>
+</body>
+</html>

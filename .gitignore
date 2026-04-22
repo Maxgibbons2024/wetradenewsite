@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# node
+node_modules/
+package.json
+package-lock.json
+
+# unrelated subprojects that happen to live in this folder
+adforge/
+ads-9x16/
+meta-ads/
+portfolio/
+wetrade-ads/
+trade-copier/
+
+# unrelated scripts / data
+find_new_bars.py
+parse_webflow_sections.py
+scrape.js
+install.sh
+childcare_providers.csv
+childcare_providers.json
+
+# local Claude Code state
+.claude/settings.local.json
