@@ -120,7 +120,57 @@
     }
   });
 
-  /* 6. Smooth-scroll anchor hrefs ------------------------------ */
+  /* 6. Globe student rotator ----------------------------------- */
+  const callout = document.getElementById('studentCallout');
+  const calloutLine = document.getElementById('calloutLine');
+  const pins = document.querySelectorAll('.globe .pin');
+  const avatarEl = document.getElementById('studentAvatar');
+  const nameEl = document.getElementById('studentName');
+  const locEl = document.getElementById('studentLoc');
+  const fundedEl = document.getElementById('studentFunded');
+
+  const STUDENTS = [
+    { pin: 'la',         initials: 'JM', name: 'John Martinez',    loc: 'Los Angeles, USA',   funded: 'Funded $600k' },
+    { pin: 'manchester', initials: 'SR', name: 'Samantha Reid',    loc: 'Manchester, UK',     funded: 'Funded £100k' },
+    { pin: 'paris',      initials: 'CD', name: 'Chloé Dubois',     loc: 'Paris, France',      funded: 'Funded €150k' },
+    { pin: 'dubai',      initials: 'OH', name: 'Omar Haddad',      loc: 'Dubai, UAE',         funded: 'Funded $400k' },
+    { pin: 'mumbai',     initials: 'PK', name: 'Priya Kumar',      loc: 'Mumbai, India',      funded: 'Funded $100k' },
+    { pin: 'tokyo',      initials: 'TS', name: 'Takashi Sato',     loc: 'Tokyo, Japan',       funded: 'Funded $200k' },
+    { pin: 'saopaulo',   initials: 'LB', name: 'Lucia Barros',     loc: 'São Paulo, Brazil',  funded: 'Funded $250k' },
+  ];
+
+  if (callout && pins.length) {
+    let idx = 0;
+    const render = () => {
+      const s = STUDENTS[idx];
+      pins.forEach((p) => p.classList.toggle('is-active', p.dataset.pin === s.pin));
+      const activePin = document.querySelector(`.globe .pin[data-pin="${s.pin}"]`);
+      if (activePin && calloutLine) {
+        const t = activePin.getAttribute('transform').match(/translate\(([\d.]+),\s*([\d.]+)\)/);
+        if (t) {
+          calloutLine.setAttribute('x1', t[1]);
+          calloutLine.setAttribute('y1', t[2]);
+        }
+      }
+      avatarEl.textContent = s.initials;
+      nameEl.textContent = s.name;
+      locEl.textContent = s.loc;
+      fundedEl.textContent = s.funded;
+    };
+    render();
+    const advance = () => {
+      if (prefersReduced) { idx = (idx + 1) % STUDENTS.length; render(); return; }
+      callout.classList.add('is-swap');
+      setTimeout(() => {
+        idx = (idx + 1) % STUDENTS.length;
+        render();
+        callout.classList.remove('is-swap');
+      }, 350);
+    };
+    setInterval(advance, 3500);
+  }
+
+  /* 7. Smooth-scroll anchor hrefs ------------------------------ */
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;

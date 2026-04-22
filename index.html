@@ -101,126 +101,149 @@
       </div>
     </section>
 
-    <!-- =============== MAP TRUST =============== -->
-    <section class="map-trust" aria-labelledby="mapTrustTitle">
-      <svg class="map-trust__bg" aria-hidden="true">
-        <defs>
-          <pattern id="mtGrid" width="48" height="48" patternUnits="userSpaceOnUse">
-            <path d="M48 0H0V48" fill="none" stroke="rgba(10,128,167,.09)" stroke-width="1"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#mtGrid)"/>
-      </svg>
-
-      <div class="map-trust__inner">
-        <div class="map-trust__head">
-          <div class="map-trust__copy">
-            <p class="eyebrow">Two entities · One company</p>
-            <h2 id="mapTrustTitle">
-              An operating business<br>
-              with students in <span class="grad-text">56&nbsp;countries</span>.
-            </h2>
-          </div>
-          <p class="map-trust__desc">
-            We operate from two registered entities — WeTrade.io Limited in London
-            and WeTrade Middle East FZ-LLC in Dubai. Course delivery, mentoring
-            and support are handled from both.
+    <!-- =============== GLOBE TRUST (students worldwide) =============== -->
+    <section class="globe-trust" aria-labelledby="globeTrustTitle">
+      <div class="globe-trust__inner">
+        <div class="globe-trust__copy">
+          <p class="eyebrow">1,500+ students · 56 countries</p>
+          <h2 id="globeTrustTitle">
+            From London to Los Angeles,<br>
+            traders funded by the <span class="grad-text">same mechanical rules</span>.
+          </h2>
+          <p class="globe-trust__desc">
+            Our system doesn't care about your timezone, your market, or your experience level.
+            Students across 56 countries have passed funded evaluations using the exact same
+            rules-based approach. Here's a small slice of the roster.
           </p>
+          <dl class="globe-trust__stats">
+            <div>
+              <dt>1,500+</dt>
+              <dd>Students educated</dd>
+            </div>
+            <div>
+              <dt>56</dt>
+              <dd>Countries</dd>
+            </div>
+            <div>
+              <dt>$3.2M</dt>
+              <dd>Total funded</dd>
+            </div>
+            <div>
+              <dt>Since 2019</dt>
+              <dd>Operating globally</dd>
+            </div>
+          </dl>
         </div>
 
-        <div class="map-trust__card">
-          <svg class="world-map" viewBox="0 0 1000 380" aria-hidden="true">
+        <div class="globe-trust__stage">
+          <svg class="globe" viewBox="0 0 400 400" role="img" aria-label="Globe showing student locations worldwide">
             <defs>
-              <filter id="mtGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="4" result="b"/>
-                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <radialGradient id="mtPulse" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#27CCE7" stop-opacity=".5"/>
+              <radialGradient id="globeBg" cx="35%" cy="30%" r="75%">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="55%" stop-color="#F4FBFD"/>
+                <stop offset="100%" stop-color="#E6F1F5"/>
+              </radialGradient>
+              <radialGradient id="globeShade" cx="72%" cy="72%" r="60%">
+                <stop offset="0%" stop-color="rgba(10,128,167,0)"/>
+                <stop offset="100%" stop-color="rgba(10,128,167,.18)"/>
+              </radialGradient>
+              <radialGradient id="pinPulse" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#27CCE7" stop-opacity=".55"/>
                 <stop offset="100%" stop-color="#27CCE7" stop-opacity="0"/>
               </radialGradient>
-              <linearGradient id="mtGrad" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0%" stop-color="#27CCE7"/>
-                <stop offset="100%" stop-color="#0A80A7"/>
-              </linearGradient>
+              <radialGradient id="pinPulseActive" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#0A80A7" stop-opacity=".8"/>
+                <stop offset="100%" stop-color="#0A80A7" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="pinGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <clipPath id="globeClip">
+                <circle cx="200" cy="200" r="180"/>
+              </clipPath>
             </defs>
 
-            <!-- latitude lines -->
-            <path d="M 20 95 Q 500 77, 980 95" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
-            <path d="M 20 150 Q 500 132, 980 150" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
-            <path d="M 20 205 Q 500 187, 980 205" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
-            <path d="M 20 260 Q 500 242, 980 260" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
-            <path d="M 20 315 Q 500 297, 980 315" stroke="rgba(10,128,167,.09)" stroke-width="1" fill="none"/>
+            <!-- sphere body -->
+            <circle cx="200" cy="200" r="180" fill="url(#globeBg)" stroke="rgba(10,128,167,.22)" stroke-width="1.5"/>
 
-            <!-- UK silhouette -->
-            <g transform="translate(320, 70)">
-              <path d="M 40 30 Q 48 12, 64 16 Q 82 10, 92 26 L 100 44 Q 108 56, 98 70 L 104 88 Q 110 104, 98 118 Q 106 138, 90 150 L 72 158 Q 54 164, 44 152 Q 30 148, 28 130 L 22 110 Q 14 92, 26 78 L 20 60 Q 16 44, 30 36 Z"
-                    fill="rgba(10,128,167,.06)" stroke="rgba(10,128,167,.35)" stroke-width="1.25"/>
-              <path d="M 4 104 Q 0 90, 12 86 Q 22 92, 18 106 Q 14 118, 4 112 Z"
-                    fill="rgba(10,128,167,.06)" stroke="rgba(10,128,167,.35)" stroke-width="1.25"/>
+            <!-- lat/long grid -->
+            <g clip-path="url(#globeClip)" class="globe-grid">
+              <!-- equator -->
+              <line x1="20" y1="200" x2="380" y2="200"/>
+              <!-- parallels -->
+              <ellipse cx="200" cy="200" rx="180" ry="28"/>
+              <ellipse cx="200" cy="200" rx="170" ry="58"/>
+              <ellipse cx="200" cy="200" rx="155" ry="92"/>
+              <ellipse cx="200" cy="200" rx="134" ry="128"/>
+              <ellipse cx="200" cy="200" rx="100" ry="160"/>
+              <!-- prime meridian -->
+              <line x1="200" y1="20" x2="200" y2="380"/>
+              <!-- meridians -->
+              <ellipse cx="200" cy="200" rx="32" ry="180"/>
+              <ellipse cx="200" cy="200" rx="64" ry="180"/>
+              <ellipse cx="200" cy="200" rx="100" ry="180"/>
+              <ellipse cx="200" cy="200" rx="135" ry="180"/>
+              <ellipse cx="200" cy="200" rx="160" ry="180"/>
             </g>
 
-            <!-- Arabian Peninsula (UAE) -->
-            <g transform="translate(610, 140)">
-              <path d="M 10 30 Q 20 10, 48 14 L 96 8 Q 130 4, 168 22 L 210 48 Q 230 60, 232 86 L 230 130 Q 224 160, 200 176 L 160 184 Q 120 190, 90 172 L 50 150 Q 18 134, 10 96 Z"
-                    fill="rgba(10,128,167,.06)" stroke="rgba(10,128,167,.35)" stroke-width="1.25"/>
-            </g>
+            <!-- shadow on lower-right edge for 3D feel -->
+            <circle cx="200" cy="200" r="180" fill="url(#globeShade)" pointer-events="none"/>
 
-            <!-- connection arc -->
-            <path d="M 378 150 Q 560 40, 820 210" stroke="#27CCE7" stroke-width="1.5"
-                  stroke-dasharray="2 6" fill="none" opacity=".5"/>
+            <!-- callout line drawn from active pin to callout anchor -->
+            <line id="calloutLine" class="callout-line" x1="80" y1="145" x2="200" y2="360"
+                  stroke="#0A80A7" stroke-width="1" stroke-dasharray="2 5" opacity=".5"/>
 
-            <!-- London pin -->
-            <g transform="translate(378, 150)">
-              <circle class="pulse-halo" r="36" fill="url(#mtPulse)"/>
-              <circle r="7" fill="#27CCE7" filter="url(#mtGlow)"/>
-              <circle r="3" fill="#fff"/>
-              <g transform="translate(16, -6)">
-                <rect x="-2" y="-14" width="110" height="36" rx="8" fill="#fff" stroke="rgba(10,128,167,.15)"/>
-                <text x="10" y="0" font-family="Montserrat, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" fill="#252A2E">LONDON</text>
-                <text x="10" y="14" font-family="Montserrat, sans-serif" font-size="10" font-weight="500" fill="#555E64">WeTrade.io Ltd · UK</text>
+            <!-- pins -->
+            <g class="pins">
+              <g class="pin" data-pin="la" transform="translate(80, 145)">
+                <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
+                <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
+                <circle r="1.8" fill="#fff"/>
               </g>
-            </g>
-
-            <!-- Dubai pin -->
-            <g transform="translate(820, 210)">
-              <circle class="pulse-halo" r="36" fill="url(#mtPulse)"/>
-              <circle r="7" fill="#0A80A7" filter="url(#mtGlow)"/>
-              <circle r="3" fill="#fff"/>
-              <g transform="translate(-132, -6)">
-                <rect x="0" y="-14" width="116" height="36" rx="8" fill="#fff" stroke="rgba(10,128,167,.15)"/>
-                <text x="10" y="0" font-family="Montserrat, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" fill="#252A2E">DUBAI</text>
-                <text x="10" y="14" font-family="Montserrat, sans-serif" font-size="10" font-weight="500" fill="#555E64">WeTrade ME FZ-LLC</text>
+              <g class="pin" data-pin="manchester" transform="translate(184, 112)">
+                <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
+                <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
+                <circle r="1.8" fill="#fff"/>
               </g>
-            </g>
-
-            <!-- headline stat panel -->
-            <g transform="translate(500, 280)">
-              <rect x="-120" y="-46" width="240" height="76" rx="14" fill="url(#mtGrad)"/>
-              <text x="0" y="-16" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="11" font-weight="600" letter-spacing="1.4" fill="rgba(255,255,255,.7)">STUDENTS EDUCATED</text>
-              <text x="0" y="16" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="36" font-weight="700" letter-spacing="-0.5" fill="#fff">1,500+</text>
+              <g class="pin" data-pin="paris" transform="translate(210, 130)">
+                <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
+                <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
+                <circle r="1.8" fill="#fff"/>
+              </g>
+              <g class="pin" data-pin="dubai" transform="translate(272, 178)">
+                <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
+                <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
+                <circle r="1.8" fill="#fff"/>
+              </g>
+              <g class="pin" data-pin="mumbai" transform="translate(302, 196)">
+                <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
+                <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
+                <circle r="1.8" fill="#fff"/>
+              </g>
+              <g class="pin" data-pin="tokyo" transform="translate(340, 158)">
+                <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
+                <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
+                <circle r="1.8" fill="#fff"/>
+              </g>
+              <g class="pin" data-pin="saopaulo" transform="translate(126, 270)">
+                <circle class="pin-halo" r="14" fill="url(#pinPulse)"/>
+                <circle class="pin-dot" r="4" fill="#27CCE7" filter="url(#pinGlow)"/>
+                <circle r="1.8" fill="#fff"/>
+              </g>
             </g>
           </svg>
-        </div>
 
-        <dl class="map-trust__stats">
-          <div>
-            <dt class="map-trust__stat-v">1,500+</dt>
-            <dd class="map-trust__stat-k">Students educated</dd>
-          </div>
-          <div>
-            <dt class="map-trust__stat-v">Since 2019</dt>
-            <dd class="map-trust__stat-k">Years running</dd>
-          </div>
-          <div>
-            <dt class="map-trust__stat-v">London · Dubai</dt>
-            <dd class="map-trust__stat-k">Offices</dd>
-          </div>
-          <div>
-            <dt class="map-trust__stat-v">240+</dt>
-            <dd class="map-trust__stat-k">Live sessions / year</dd>
-          </div>
-        </dl>
+          <!-- rotating student callout -->
+          <figure class="student-callout" id="studentCallout" aria-live="polite">
+            <div class="student-callout__avatar" id="studentAvatar">JM</div>
+            <figcaption class="student-callout__info">
+              <div class="student-callout__name" id="studentName">John Martinez</div>
+              <div class="student-callout__loc" id="studentLoc">Los Angeles, USA</div>
+              <div class="student-callout__funded" id="studentFunded">Funded $600k</div>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
