@@ -177,46 +177,56 @@
     arcTrace.style.strokeDashoffset = len;
     arcTrace.style.opacity = '0';
     arcTrace.getBoundingClientRect(); // force reflow
-    arcTrace.style.transition = `stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1), opacity .4s ease`;
+    arcTrace.style.transition = `stroke-dashoffset .6s cubic-bezier(.4,0,.2,1), opacity .25s ease`;
     arcTrace.style.opacity = '1';
     arcTrace.style.strokeDashoffset = '0';
-    setTimeout(() => { arcTrace.style.opacity = '0'; }, 2200);
+    setTimeout(() => { arcTrace.style.opacity = '0'; }, 900);
   };
 
   if (callout && pins.length) {
     let idx = 0;
     let prevPin = null;
 
-    const render = (animate) => {
-      const s = STUDENTS[idx];
-      const target = pinCoords(s.pin);
-      pins.forEach((p) => p.classList.toggle('is-active', p.dataset.pin === s.pin));
+    const writeContent = (s) => {
       avatarEl.textContent = s.initials;
       nameEl.textContent = s.name;
       locEl.textContent = s.loc;
       fundedEl.textContent = s.funded;
+    };
 
-      if (animate && prevPin && !prefersReduced) traceArc(prevPin, target);
+    // Initial render (no animation)
+    const initial = STUDENTS[idx];
+    const initialPin = pinCoords(initial.pin);
+    pins.forEach((p) => p.classList.toggle('is-active', p.dataset.pin === initial.pin));
+    writeContent(initial);
+    positionCallout(initialPin);
+    requestAnimationFrame(() => requestAnimationFrame(() => callout.classList.add('is-visible')));
+    prevPin = initialPin;
 
+    // Smooth slide-and-swap on each cycle: arc + card position animate in
+    // parallel; text crossfades mid-transit so the card never disappears.
+    const advance = () => {
+      idx = (idx + 1) % STUDENTS.length;
+      const s = STUDENTS[idx];
+      const target = pinCoords(s.pin);
+
+      pins.forEach((p) => p.classList.toggle('is-active', p.dataset.pin === s.pin));
+      if (prevPin && !prefersReduced) traceArc(prevPin, target);
       positionCallout(target);
-      // pop-in animation
-      callout.classList.remove('is-visible');
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => callout.classList.add('is-visible'));
-      });
 
+      // crossfade text mid-flight
+      if (prefersReduced) {
+        writeContent(s);
+      } else {
+        callout.classList.add('is-swapping');
+        setTimeout(() => {
+          writeContent(s);
+          callout.classList.remove('is-swapping');
+        }, 140);
+      }
       prevPin = target;
     };
-
-    render(false);
-    const advance = () => {
-      callout.classList.remove('is-visible');
-      setTimeout(() => {
-        idx = (idx + 1) % STUDENTS.length;
-        render(true);
-      }, 380);
-    };
-    setInterval(advance, 3800);
+    setInterval(advance, 1800);
   }
 
   /* 7. Smooth-scroll anchor hrefs ------------------------------ */

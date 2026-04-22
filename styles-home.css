@@ -569,26 +569,38 @@ p { margin: 0; }
   border: 1px solid rgba(39,204,231,.25);
   box-shadow: 0 18px 44px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.25), 0 0 0 1px rgba(39,204,231,.08);
   opacity: 0;
-  transform: translate(-50%, -8px) scale(.92);
-  transition: opacity .45s var(--ease), transform .45s var(--ease), top .6s var(--ease), left .6s var(--ease);
+  transform: translate(-50%, 0) scale(.96);
+  transition:
+    opacity .3s cubic-bezier(.4,0,.2,1),
+    top .7s cubic-bezier(.4,0,.2,1),
+    left .7s cubic-bezier(.4,0,.2,1);
   pointer-events: none;
   z-index: 2;
+  will-change: top, left, opacity;
 }
 .student-callout.is-visible {
   opacity: 1;
   transform: translate(-50%, 0) scale(1);
 }
 .student-callout[data-pos="above"] {
-  transform: translate(-50%, calc(-100% - 28px)) scale(.92);
-}
-.student-callout[data-pos="above"].is-visible {
   transform: translate(-50%, calc(-100% - 28px)) scale(1);
 }
 .student-callout[data-pos="below"] {
-  transform: translate(-50%, 28px) scale(.92);
-}
-.student-callout[data-pos="below"].is-visible {
   transform: translate(-50%, 28px) scale(1);
+}
+.student-callout__name,
+.student-callout__loc,
+.student-callout__funded {
+  transition: opacity .14s cubic-bezier(.4,0,.2,1);
+}
+.student-callout.is-swapping .student-callout__name,
+.student-callout.is-swapping .student-callout__loc,
+.student-callout.is-swapping .student-callout__funded,
+.student-callout.is-swapping .student-callout__avatar {
+  opacity: 0;
+}
+.student-callout__avatar {
+  transition: opacity .14s cubic-bezier(.4,0,.2,1);
 }
 .student-callout::after {
   content: '';
